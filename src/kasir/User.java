@@ -307,7 +307,7 @@ public class User extends koneksi implements Kelola{
   		scan.close();
   	}
 
- 	// Mengedit email dan password akun
+ 	// Mengedit username, email, dan password akun
  	@Override
  	public void EditAkun(){
 
@@ -421,10 +421,10 @@ public class User extends koneksi implements Kelola{
  							stmt = conn.createStatement();
  							
  							if (stmt.executeUpdate(query) == 1) {
- 								System.out.println("Email Berhasil Di Ubah");
+ 								System.out.println("Password Berhasil Di Ubah");
  								user_pilih();
  							} else {
- 								System.out.println("Email Gagal Di Ubah");
+ 								System.out.println("Password Gagal Di Ubah");
  								EditAkun();
  							}
  							
