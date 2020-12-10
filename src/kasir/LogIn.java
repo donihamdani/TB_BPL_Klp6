@@ -13,7 +13,7 @@ public class LogIn {
 		
 		Integer pilihan = 0;
 		
-		System.out.println("     Toko Selamat Pagi");
+		System.out.println("       Toko Kelompok 6      ");
 		System.out.println("============================");
 		System.out.println(date+"\n");
 		System.out.println("1. Login");
@@ -25,7 +25,7 @@ public class LogIn {
 		} catch (InputMismatchException e) {
 			System.out.println("Input yang anda masukkan salah");
 			
-			System.out.println("     Toko Selamat Pagi");
+			System.out.println("       Toko Kelompok 6      ");
 			System.out.println("============================");
 			System.out.println(date+"\n");
 			System.out.println("1. Login");
