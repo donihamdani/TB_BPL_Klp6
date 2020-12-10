@@ -172,6 +172,7 @@ public class User extends koneksi implements Kelola{
   	public void user_pilih(){
 
   		Scanner scan = new Scanner(System.in);
+  		Barang brg = new Barang();
 
   		System.out.println("\n\n--DAFTAR MENU--");
   		System.out.println("1. Pengaturan Akun");
@@ -193,6 +194,8 @@ public class User extends koneksi implements Kelola{
 
   				case 3:
   					// proses.option();
+  					brg.Menu();
+  					
   					break;
 
   				case 4:

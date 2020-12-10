@@ -8,5 +8,4 @@ public interface Kelola {
 	public void HapusAkun();
 	public void CariAkun();
 	public void LihatAkun();
-
 }
