@@ -296,7 +296,7 @@ public class Barang extends koneksi implements KelolaBarang {
 
         try {
             System.out.println("\n ------------------------------------------------------------------------------------ ");
-            System.out.println("|                          DATA BARANG TOKO SELAMAT PAGI                             |");
+            System.out.println("|                            DATA BARANG TOKO KELOMPOK 6                             |");
             System.out.println(" ------------------------------------------------------------------------------------ ");
             
          		System.out.print("  SKU");
