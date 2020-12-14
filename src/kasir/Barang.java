@@ -352,4 +352,65 @@ public class Barang extends koneksi implements KelolaBarang {
 		
 	}
 	
+	//Restock Barang
+	@Override
+	public void RestokBarang() throws Exception {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+		
+        System.out.println("\n ------------------------------------------------------------------------------------ ");
+        System.out.println("|                                 RESTOK BARANG                                     |");
+        System.out.println(" ------------------------------------------------------------------------------------ ");
+        
+		System.out.print("Masukkan nama barang : ");
+		String cek = input.nextLine();
+		
+		try {
+                        stmt = conn.createStatement();
+                        String sql = "SELECT * FROM data_master WHERE nama='"+cek+"'";
+			rs = stmt.executeQuery(sql);
+			
+        	if(rs.next()) { 
+			String namabarang = rs.getString(nama);
+                        Integer stok = rs.getInt("stock");
+                        System.out.print("Jumlah Restok\t : ");
+                        Integer tambah = input1.nextInt();
+                        int restok = Integer.valueOf(stock) + Integer.valueOf(tambah);
+                        String sql2 = "UPDATE data_master SET stock = '"+restok+"' WHERE nama = '"+cek+"'";
+                        stmt.execute(sql2);
+                        stmt.close();
+                        System.out.println("Stok sudah bertambah!\n");
+        	}
+                
+        	else {
+        		System.out.println("\nBarang Tidak Ada");
+        	}
+        	
+            System.out.println("\nRestok Barang Lagi? Y/T");
+            System.out.print("Jawaban : ");
+            jwb = input.nextLine();
+            
+            if(jwb.equalsIgnoreCase("y")) {
+            	CariBarang();
+            }
+            else {
+                System.out.println("\nKembali ke Menu? Y/T");
+                System.out.print("Jawaban : ");
+                jwb = input.nextLine();
+                
+                if(jwb.equalsIgnoreCase("y")) {
+                	Menu();
+                }
+                else {
+                	user.logout();
+                }
+            }
+        		
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }
