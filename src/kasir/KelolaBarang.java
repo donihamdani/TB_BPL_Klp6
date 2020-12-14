@@ -7,5 +7,6 @@ public interface KelolaBarang {
 	public void UbahBarang() throws Exception;
 	public void HapusBarang() throws Exception;
 	public void LihatData() throws Exception;
+	public void RestokBarang() throws Exception;
 	
 }
