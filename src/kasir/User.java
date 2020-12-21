@@ -14,7 +14,7 @@ public class User extends koneksi implements Kelola{
 	Scanner input = new Scanner(System.in);
 	Date date = new Date();
 
-	String usr;
+	public static String usr;
 	String pass;
 
 	String username;
@@ -22,6 +22,7 @@ public class User extends koneksi implements Kelola{
 	String email;
 	String str;
 	String query;
+	
 	
 	// LogIn
 	@Override
@@ -173,6 +174,7 @@ public class User extends koneksi implements Kelola{
 
   		Scanner scan = new Scanner(System.in);
   		Barang brg = new Barang();
+  		Transaksi trs = new Transaksi();
 
   		System.out.println("\n\n--DAFTAR MENU--");
   		System.out.println("1. Pengaturan Akun");
@@ -189,7 +191,7 @@ public class User extends koneksi implements Kelola{
   					break;
   				
   				case 2:
-  					// transaksi.option();
+  					trs.Menu();
   					break;	
 
   				case 3:

@@ -260,8 +260,8 @@ public class Barang extends koneksi implements KelolaBarang {
 		conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
 		
 		System.out.println("\n ---------------------------------------------- ");
-		System.out.println("|                  HAPUS DATA                  |");
-		System.out.println(" ---------------------------------------------- ");
+		System.out.println("|                  HAPUS DATA                    |");
+		System.out.println(" ------------------------------------------------ ");
 		System.out.print("Masukkan SKU pada data yang akan di hapus : ");
 		this.sku = input.nextLine();
 		
