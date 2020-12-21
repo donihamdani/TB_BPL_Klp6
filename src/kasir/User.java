@@ -175,11 +175,14 @@ public class User extends koneksi implements Kelola{
   		Scanner scan = new Scanner(System.in);
   		Barang brg = new Barang();
   		Transaksi trs = new Transaksi();
+  		LaporanTransaksi lt = new LaporanTransaksi();
 
   		System.out.println("\n\n--DAFTAR MENU--");
   		System.out.println("1. Pengaturan Akun");
   		System.out.println("2. Beli Barang");
   		System.out.println("3. Data Master");
+  		System.out.println("4. Laporan Penjualan");
+  		System.out.println("5. Keluar Program");
   		System.out.print("Tentukan Pilihanmu : ");
   		
   		try {
@@ -201,7 +204,14 @@ public class User extends koneksi implements Kelola{
   					break;
 
   				case 4:
-  					
+  					lt.menu();
+  					break;
+  				case 5:
+  					System.out.println("\n\n+----------------------------------+");
+  					System.out.println("|          Program Ditutup         |");
+  					System.out.println("|           Terima Kasih           |");
+  					System.out.println("+----------------------------------+");
+  					System.exit(0);
   				default:
   					System.out.println("Pilihan Tidak Tersedia");
   					break;
