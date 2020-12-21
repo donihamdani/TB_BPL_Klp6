@@ -22,6 +22,13 @@ public class Program {
 		case 2:
 			user.TambahAkun();
 			break;
+		
+		default:
+			System.out.println("+------------------------+");
+			System.out.println("| Pilihan Tidak Tersedia |");
+			System.out.println("+------------------------+");
+			LogIn.landingPage();
+			break;
 		}
 	}
 
