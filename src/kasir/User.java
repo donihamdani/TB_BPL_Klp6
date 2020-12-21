@@ -18,7 +18,7 @@ public class User extends koneksi implements Kelola{
 	String usr;
 	String pass;
 
-	String username;
+	public static String username;
 	String password;
 	String email;
 	String str;
@@ -181,6 +181,7 @@ public class User extends koneksi implements Kelola{
   		Scanner scan = new Scanner(System.in);
   		Barang brg = new Barang();
   		Transaksi trs = new Transaksi();
+  		LaporanTransaksi lt = new LaporanTransaksi();
 
   		System.out.println("+=========================+");
     	System.out.println("|       DAFTAR MENU       |");
@@ -188,6 +189,8 @@ public class User extends koneksi implements Kelola{
   		System.out.println("| 1. Pengaturan Akun      |");
   		System.out.println("| 2. Beli Barang          |");
   		System.out.println("| 3. Data Master          |");
+  		System.out.println("| 4. Laporan Transaksi    |");
+  		System.out.println("| 5. Terminate            |");
   		System.out.println("+=========================+");
   		System.out.print("| Tentukan Pilihanmu : ");
   		
@@ -206,6 +209,10 @@ public class User extends koneksi implements Kelola{
 
   				case 3:
   					brg.Menu();
+  					break;
+  					
+  				case 4:
+  					lt.menu();
   					break;
   					
   				default:

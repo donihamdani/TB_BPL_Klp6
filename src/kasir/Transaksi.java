@@ -52,6 +52,11 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
 		conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
 		stmt = conn.createStatement();
 		PreparedStatement insert;
+
+		DataTransaksi trs = new DataTransaksi();
+		trs.NoResi();
+		trs.Tanggal();
+		trs.Username();
 		
 		while(ulang) {
 			System.out.println(" ------------------------------------------------------- ");
@@ -61,12 +66,6 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
 			System.out.println("=====>> Data Master Barang <<====");
 			
 			ResultSet rs = stmt.executeQuery("SELECT sku, nama, stock, harga_jual FROM barang");
-			
-			DataTransaksi trs = new DataTransaksi();
-			
-			trs.NoResi();
-			trs.Tanggal();
-			trs.Username();
 			
 			
 			System.out.println("=====================================================================================");
@@ -138,7 +137,8 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
 				System.out.print("Ada Tambahan Barang lagi? (Y/N)");
 				String jawab = sc.next().toUpperCase();
 				
-				switch(jawab) {
+				switch(jawab) 
+				{
 				
 				case "Y":
 					tanya = false;

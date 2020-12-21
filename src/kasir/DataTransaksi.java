@@ -57,7 +57,7 @@ public class DataTransaksi {
 	
 	public static void Username() {
 		User admin = new User();
-		UnameTr = admin.usr; 
+		UnameTr = admin.username; 
 	}
 	
 	public void Tanggal() {
@@ -77,7 +77,7 @@ public class DataTransaksi {
 			
 			System.out.print("\nSKU Barang : ");
 			ambilSku = sc.next();
-			ResultSet rs = stmt.executeQuery("SELECT sku, harga_jual, stock FROM data_master WHERE sku= '" + ambilSku + "';");
+			ResultSet rs = stmt.executeQuery("SELECT sku, harga_jual, stock FROM barang WHERE sku= '" + ambilSku + "';");
 			
 			if(rs.next()) {
 				ambilSku = rs.getString("sku");
@@ -92,7 +92,7 @@ public class DataTransaksi {
 				if(stok>=Qty) {
 					HargaBrg = HargaBrg * Qty;
 					stok = stok - Qty;
-					String sqlupdate = "UPDATE data_master SET stock=? where sku=?";
+					String sqlupdate = "UPDATE barang SET stock=? where sku=?";
 					PreparedStatement update = c.prepareStatement(sqlupdate);
 					stmt = c.createStatement();
 					update.setInt(1, stok);
