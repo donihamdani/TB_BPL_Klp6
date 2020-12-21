@@ -1,7 +1,6 @@
 package kasir;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Transaksi extends koneksi implements KelolaTransaksi {
@@ -37,7 +36,7 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
             }
         } 
         catch (Exception e) {
-            System.out.println("Terjadi Kesalahan Pada : " +e);
+            e.printStackTrace();
         }
     }
 	
@@ -61,7 +60,7 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
 			
 			System.out.println("=====>> Data Master Barang <<====");
 			
-			ResultSet rs = stmt.executeQuery("SELECT sku, nama, stock, harga_jual FROM data_master");
+			ResultSet rs = stmt.executeQuery("SELECT sku, nama, stock, harga_jual FROM barang");
 			
 			DataTransaksi trs = new DataTransaksi();
 			
@@ -103,7 +102,7 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
 			trs.DtTransaksi();
 			
 			System.out.println("=====>> Data Master Setelah Transaksi <<====");
-			rs = stmt.executeQuery("SELECT sku, nama, stock, harga_jual harga_jual FROM data_master");
+			rs = stmt.executeQuery("SELECT sku, nama, stock, harga_jual harga_jual FROM barang");
 			
 			System.out.println("=======================================================================================");
 			String format2 = "%s\t  %-20s %-20s %-20s %-20s\n";
@@ -157,7 +156,7 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
 		}
 	}
 		catch(SQLException e) {
-		System.out.println("Terjadi Error Pada : " +e);
+		e.printStackTrace();
 		}
 		
 		Menu();

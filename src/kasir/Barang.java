@@ -90,7 +90,7 @@ public class Barang extends koneksi implements KelolaBarang {
        
         try {
             stmt = conn.createStatement();
-            String sql = "INSERT INTO data_master VALUES ('"+sku+"', '"+nama+"', '"+stock+"', '"+harga_beli+"', '"+harga_jual+"')";   
+            String sql = "INSERT INTO barang VALUES ('"+sku+"', '"+nama+"', '"+stock+"', '"+harga_beli+"', '"+harga_jual+"')";   
 
             stmt.execute(sql);
             System.out.println("+-------------------------+");
@@ -123,7 +123,7 @@ public class Barang extends koneksi implements KelolaBarang {
 		String cari = input.nextLine();
 
 		stmt = conn.createStatement();
-		String sql = "SELECT * FROM data_master WHERE nama='"+cari+"'";
+		String sql = "SELECT * FROM barang WHERE nama='"+cari+"'";
 		
 		try {
 			rs = stmt.executeQuery(sql);
@@ -227,7 +227,7 @@ public class Barang extends koneksi implements KelolaBarang {
 					System.out.println("+---------------------------------------------+");
 			        nama = brg.nama();
 			        
-			        sql = "UPDATE data_master SET nama='"+nama+"' WHERE sku='"+sku+"'";   
+			        sql = "UPDATE barang SET nama='"+nama+"' WHERE sku='"+sku+"'";   
 			        stmt.execute(sql);
 					break;
 				case 2 :
@@ -237,7 +237,7 @@ public class Barang extends koneksi implements KelolaBarang {
 					System.out.println("+---------------------------------------------+");
 			        stock = brg.stock();
 			        
-			        sql = "UPDATE data_master SET stock='"+stock+"' WHERE sku='"+sku+"'";   
+			        sql = "UPDATE barang SET stock='"+stock+"' WHERE sku='"+sku+"'";   
 			        stmt.execute(sql);
 					break;
 				case 3 :
@@ -247,7 +247,7 @@ public class Barang extends koneksi implements KelolaBarang {
 					System.out.println("+---------------------------------------------+");
 			        harga_beli = brg.harga_beli();
 			        
-			        sql = "UPDATE data_master SET harga_beli='"+harga_beli+"' WHERE sku='"+sku+"'";   
+			        sql = "UPDATE barang SET harga_beli='"+harga_beli+"' WHERE sku='"+sku+"'";   
 			        stmt.execute(sql);
 					break;
 				case 4 :
@@ -257,7 +257,7 @@ public class Barang extends koneksi implements KelolaBarang {
 					System.out.println("+---------------------------------------------+");
 			        harga_jual = brg.harga_jual();
 			        
-			        sql = "UPDATE data_master SET harga_jual='"+harga_jual+"' WHERE sku='"+sku+"'";   
+			        sql = "UPDATE barang SET harga_jual='"+harga_jual+"' WHERE sku='"+sku+"'";   
 			        stmt.execute(sql);
 					break;
 				default :
@@ -292,7 +292,7 @@ public class Barang extends koneksi implements KelolaBarang {
 		
 		try {
 			stmt = conn.createStatement();
-			String sql = "DELETE FROM data_master WHERE sku='"+sku+"'";
+			String sql = "DELETE FROM barang WHERE sku='"+sku+"'";
 		
 			stmt.execute(sql);
 			System.out.println("+------------------------+");
@@ -318,7 +318,7 @@ public class Barang extends koneksi implements KelolaBarang {
     	
     	ArrayList <DataBarang> data = new ArrayList<>();
         
-        String sql = "SELECT * FROM data_master";
+        String sql = "SELECT * FROM barang";
         rs = stmt.executeQuery(sql);
 
         try {
@@ -395,11 +395,11 @@ public class Barang extends koneksi implements KelolaBarang {
 		System.out.println("+=====================================================+");
         
 		System.out.print("Masukkan nama barang : ");
-		String cek = input.nextLine();
+		cek = input.nextLine();
 		
 		try {
                         stmt = conn.createStatement();
-                        String sql = "SELECT * FROM data_master WHERE nama='"+cek+"'";
+                        String sql = "SELECT * FROM barang WHERE nama='"+cek+"'";
 			rs = stmt.executeQuery(sql);
 			
         	if(rs.next()) { 
@@ -408,7 +408,7 @@ public class Barang extends koneksi implements KelolaBarang {
                         System.out.print("Jumlah Restok\t : ");
                         Integer tambah = input1.nextInt();
                         int restok = Integer.valueOf(stock) + Integer.valueOf(tambah);
-                        String sql2 = "UPDATE data_master SET stock = '"+restok+"' WHERE nama = '"+cek+"'";
+                        String sql2 = "UPDATE barang SET stock = '"+restok+"' WHERE nama = '"+cek+"'";
                         stmt.execute(sql2);
                         stmt.close();
                         System.out.println("Stok sudah bertambah!\n");
