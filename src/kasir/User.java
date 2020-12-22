@@ -14,6 +14,7 @@ public class User extends koneksi implements Kelola{
 	
 	Scanner input = new Scanner(System.in);
 	Date date = new Date();
+	LogIn login = new LogIn();
 
 	String usr;
 	String pass;
@@ -176,7 +177,7 @@ public class User extends koneksi implements Kelola{
 
  	
  // Pilihan menu
-  	public void user_pilih(){
+  	public void user_pilih() throws Exception {
 
   		Scanner scan = new Scanner(System.in);
   		Barang brg = new Barang();
@@ -239,7 +240,7 @@ public class User extends koneksi implements Kelola{
 
 
   	// Pilihan setting
-  	public void user_setting() {
+  	public void user_setting() throws Exception {
 
   		Scanner scan = new Scanner(System.in);
   			
@@ -296,7 +297,7 @@ public class User extends koneksi implements Kelola{
   	}
   	
   	// LogOut
-  	public void logout() {
+  	public void logout() throws Exception {
   		boolean cek = true;
   		String jawab;
   		do {
@@ -349,7 +350,7 @@ public class User extends koneksi implements Kelola{
 				System.out.println("+------------------------+");
   				System.out.println("| Pilihan Tidak Tersedia |");
   				System.out.println("+------------------------+");
-  				LogIn.landingPage();
+  				login.landingPage();
   				break;
   		}
   		
@@ -358,7 +359,7 @@ public class User extends koneksi implements Kelola{
 
  	// Mengedit username, email, dan password akun
  	@Override
- 	public void EditAkun(){
+ 	public void EditAkun() throws Exception {
 
  		System.out.println("\n\n");
  		System.out.println("+========================+");
@@ -544,7 +545,7 @@ public class User extends koneksi implements Kelola{
 
  	// Hapus akun
  	@Override
- 	public void HapusAkun(){
+ 	public void HapusAkun() throws Exception {
 
  		System.out.println("+-----------------------------------------------+");
 		System.out.println("|                  HAPUS AKUN                   |");
@@ -603,7 +604,7 @@ public class User extends koneksi implements Kelola{
 				System.out.println("+------------------------+");
   				System.out.println("| Pilihan Tidak Tersedia |");
   				System.out.println("+------------------------+");
-  				LogIn.landingPage();
+  				login.landingPage();
   				break;
   		}
   		
@@ -614,7 +615,7 @@ public class User extends koneksi implements Kelola{
 
  	// Cari data akun atau data transaksi
  	@Override
- 	public void CariAkun(){
+ 	public void CariAkun() throws Exception {
  		System.out.println("+---------------------+");
 		System.out.println("|      CARI AKUN      |");
 		System.out.println("+---------------------+");
@@ -655,7 +656,7 @@ public class User extends koneksi implements Kelola{
 
  	// Lihat data akun atau data transaksi??
  	@Override
- 	public void LihatAkun(){
+ 	public void LihatAkun() throws Exception {
  		System.out.println("+---------------------+");
 		System.out.println("|     LIHAT AKUN      |");
 		System.out.println("+---------------------+");
