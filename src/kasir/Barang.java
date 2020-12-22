@@ -23,7 +23,7 @@ public class Barang extends koneksi implements KelolaBarang {
 	
 	//Menu Data
     public void Menu() {
-        System.out.println("+==================================+");
+        System.out.println("\n+==================================+");
     	System.out.println("|         MENU DATA BARANG         |");
     	System.out.println("+==================================+");
         System.out.println("| 1. Tambah Barang                 |");
@@ -31,6 +31,7 @@ public class Barang extends koneksi implements KelolaBarang {
         System.out.println("| 3. Ubah Barang                   |");
         System.out.println("| 4. Hapus Barang                  |");
         System.out.println("| 5. Lihat Data Barang             |");
+        System.out.println("| 6. Restok Data Barang            |");
         System.out.println("| 0. Kembali                       |");
         System.out.println("+==================================+");
         System.out.print("| Masukkan Pilihan : ");
@@ -57,6 +58,9 @@ public class Barang extends koneksi implements KelolaBarang {
                 case 5 :
                 	LihatData();
                 	break;
+                case 6 :
+                	RestokBarang();
+                	break;
                 default:
                     System.out.println("+-----------------------------------------+");
                     System.out.println("| Pilihan yang anda masukkan tidak valid! |");
@@ -79,8 +83,8 @@ public class Barang extends koneksi implements KelolaBarang {
 		
 		System.out.print("\n\n");
 		System.out.println("+==================================+");
-    		System.out.println("|           TAMBAH DATA            |");
-    		System.out.println("+==================================+");
+    	System.out.println("|           TAMBAH DATA            |");
+    	System.out.println("+==================================+");
 		
 		sku = brg.sku();
 		nama = brg.nama();
@@ -113,13 +117,11 @@ public class Barang extends koneksi implements KelolaBarang {
 		
 		ArrayList <DataBarang> data = new ArrayList<>();
 		
-        	System.out.print("\n\n");
+        System.out.print("\n\n");
 		System.out.println("+==========================================+");
-    		System.out.println("|             PENCARIAN DATA               |");
-    		System.out.println("+==========================================+");
-		  System.out.print("| Masukkan nama barang yang ingin di cari : ");
-        
-		System.out.print("Masukkan nama barang yang ingin di cari : ");
+    	System.out.println("|             PENCARIAN DATA               |");
+    	System.out.println("+==========================================+");
+		System.out.print("| Masukkan nama barang yang ingin di cari : ");
 		String cari = input.nextLine();
 
 		stmt = conn.createStatement();
@@ -203,15 +205,15 @@ public class Barang extends koneksi implements KelolaBarang {
 		String sql;
 		DataBarang brg = new DataBarang();
 		
-        	System.out.print("\n\n");
+        System.out.print("\n\n");
 		System.out.println("+==========================================+");
-    		System.out.println("|               UBAH BARANG                |");
-    		System.out.println("+==========================================+");
-        	System.out.println("| 1. Nama                                  |");
-        	System.out.println("| 2. Stock                                 |");
-        	System.out.println("| 3. Harga Beli                            |");
-        	System.out.println("| 4. Harga Jual                            |");
-        	System.out.println("+==========================================+");
+    	System.out.println("|               UBAH BARANG                |");
+    	System.out.println("+==========================================+");
+        System.out.println("| 1. Nama                                  |");
+        System.out.println("| 2. Stock                                 |");
+        System.out.println("| 3. Harga Beli                            |");
+        System.out.println("| 4. Harga Jual                            |");
+        System.out.println("+==========================================+");
 		System.out.print("| Pilih data yang ingin diubah : ");
 		Integer ubah = input1.nextInt();
 		System.out.println("+==========================================+");
@@ -284,27 +286,68 @@ public class Barang extends koneksi implements KelolaBarang {
 		
 		System.out.print("\n\n");
 		System.out.println("+==========================================+");
-    		System.out.println("|               HAPUS DATA                 |");
-    		System.out.println("+==========================================+");
+    	System.out.println("|               HAPUS DATA                 |");
+    	System.out.println("+==========================================+");
 		System.out.print("| Masukkan SKU pada data yang akan di hapus : ");
 		this.sku = input.nextLine();
 		System.out.println("+==========================================+");
 		
 		try {
 			stmt = conn.createStatement();
-			String sql = "DELETE FROM barang WHERE sku='"+sku+"'";
-		
-			stmt.execute(sql);
-			System.out.println("+------------------------+");
-			System.out.println("| Data Berhasil Terhapus |");
-			System.out.println("+------------------------+\n");
+			String cek = "SELECT * FROM barang WHERE sku='"+sku+"'";
+			rs = stmt.executeQuery(cek);
+			
+			if(rs.next()) {
+				System.out.println(" ");
+         		System.out.print("SKU");
+         		System.out.print("\t\t");
+         		System.out.print("NAMA");
+         		System.out.print("\t\t");
+         		System.out.print("STOCK");
+         		System.out.print("\t\t");
+         		System.out.print("HARGA BELI");
+         		System.out.print("\t\t");
+         		System.out.println("HARGA JUAL ");
+         		
+        		System.out.print(rs.getString("sku"));
+        		System.out.print("\t\t");
+        		System.out.print(rs.getString("nama"));
+        		System.out.print("\t\t");
+        		System.out.print(rs.getInt("stock"));
+        		System.out.print("\t\t");
+        		System.out.print(rs.getInt("harga_beli"));
+        		System.out.print("\t\t\t");
+        		System.out.println(rs.getInt("harga_jual"));			
+    			
+        		System.out.println("\nApakah anda yakin untuk menghapus data tersebut? (Y/T)");
+        		System.out.print("Jawaban = ");
+        		String jawab = input.nextLine();
+        		
+        		if(jawab.equalsIgnoreCase("y")) {
+            		String sql = "DELETE FROM barang WHERE sku='"+sku+"'";
+        			stmt.execute(sql);
+        			
+        			System.out.println("\n+------------------------+");
+        			System.out.println("| Data Berhasil Terhapus |");
+        			System.out.println("+------------------------+");
+        			LihatData();
+        		}
+        		else {
+        			Menu();
+        		}
+			}
+			else {
+				System.out.println("\n+------------------------------------+");
+				System.out.println("| SKU yang dimasukkan tidak tersedia |");
+				System.out.println("+------------------------------------+\n");
+				HapusBarang();
+			}
 
 		}
 		
 		catch(Exception e) {
 			e.printStackTrace();
 		}			
-		LihatData();
 
 	}
 	
@@ -323,9 +366,9 @@ public class Barang extends koneksi implements KelolaBarang {
 
         try {
             System.out.print("\n\n");
-    		System.out.println("+=====================================================+");
-        	System.out.println("|               DATA BARANG KELOMPOK 6                |");
-        	System.out.println("+=====================================================+");
+    		System.out.println("+====================================================================================+");
+        	System.out.println("|                                 DATA BARANG KELOMPOK 6                             |");
+        	System.out.println("+====================================================================================+");
             
          		System.out.print("  SKU");
          		System.out.print("\t\t");
@@ -386,32 +429,27 @@ public class Barang extends koneksi implements KelolaBarang {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
 		
-        	System.out.print("\n\n");
+        System.out.print("\n\n");
 		System.out.println("+=====================================================+");
-    		System.out.println("|               RESTOK BARANG KELOMPOK 6              |");
-    		System.out.println("+=====================================================+");
+    	System.out.println("|               RESTOK BARANG KELOMPOK 6              |");
+    	System.out.println("+=====================================================+");
 		System.out.print("| Masukkan nama barang : ");
 		String cek = input.nextLine();
 		System.out.println("+=====================================================+");
-        
-		System.out.print("Masukkan nama barang : ");
-		cek = input.nextLine();
 		
 		try {
-                        stmt = conn.createStatement();
-                        String sql = "SELECT * FROM barang WHERE nama='"+cek+"'";
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM barang WHERE nama='"+cek+"'";
 			rs = stmt.executeQuery(sql);
 			
         	if(rs.next()) { 
-			String namabarang = rs.getString(nama);
-                        Integer stok = rs.getInt("stock");
-                        System.out.print("Jumlah Restok\t : ");
-                        Integer tambah = input1.nextInt();
-                        int restok = Integer.valueOf(stock) + Integer.valueOf(tambah);
-                        String sql2 = "UPDATE barang SET stock = '"+restok+"' WHERE nama = '"+cek+"'";
-                        stmt.execute(sql2);
-                        stmt.close();
-                        System.out.println("Stok sudah bertambah!\n");
+                System.out.print("Jumlah Restok\t : ");
+                Integer tambah = input1.nextInt();
+                int restok = Integer.valueOf(rs.getInt("stock")) + Integer.valueOf(tambah);
+                String sql2 = "UPDATE barang SET stock = '"+restok+"' WHERE nama = '"+cek+"'";
+                stmt.execute(sql2);
+                stmt.close();
+                System.out.println("Stok sudah bertambah!\n");
         	}
                 
         	else {
@@ -423,7 +461,7 @@ public class Barang extends koneksi implements KelolaBarang {
             jwb = input.nextLine();
             
             if(jwb.equalsIgnoreCase("y")) {
-            	CariBarang();
+            	RestokBarang();
             }
             else {
                 System.out.println("\nKembali ke Menu? Y/T");
