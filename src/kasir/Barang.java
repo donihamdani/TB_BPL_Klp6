@@ -468,13 +468,11 @@ public class Barang extends koneksi implements KelolaBarang {
             	Menu();
             }
             else if(jwb.equalsIgnoreCase("t")) {
-            	user.logout();
-            }
+            	System.out.println("--Kembali Ke Menu Utama--");
+            	user.user_pilih();
+            } 
             else {
-    			System.out.println("\n+-------------------------------------+");
-    			System.out.println("  Jawaban yang dimasukkan tidak valid  ");
-    			System.out.println("+-------------------------------------+");
-    			user.user_pilih();
+            	user.logout();
             }
 
         } 
