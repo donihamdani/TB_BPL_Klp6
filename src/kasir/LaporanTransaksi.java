@@ -118,8 +118,8 @@ public class LaporanTransaksi extends koneksi {
 			        	jumlah = rs.getInt("jumlah");
 			        	harga = rs.getInt("harga");
 			        	
-			        	hbeli_total=hbeli_total+harga_beli;
-			        	hjual_total=hjual_total+harga_jual;
+			        	hbeli_total=hbeli_total+(harga_beli*jumlah);
+			        	hjual_total=hjual_total+(harga_jual*jumlah);
 			        	
 			        	System.out.println("\n");
 			        	System.out.printf(format1, id, noresi, tanggal, sku, nama, harga_beli, harga_jual, jumlah, harga);
@@ -181,8 +181,8 @@ public class LaporanTransaksi extends koneksi {
 			        	jumlah = rs.getInt("jumlah");
 			        	harga = rs.getInt("harga");
 			        	
-			        	hbeli_total=hbeli_total+harga_beli;
-			        	hjual_total=hjual_total+harga_jual;
+			        	hbeli_total=hbeli_total+(harga_beli*jumlah);
+			        	hjual_total=hjual_total+(harga_jual*jumlah);
 			        	
 			        	System.out.println("\n");
 			        	System.out.printf(format1, id, noresi, tanggal, sku, nama, harga_beli, harga_jual, jumlah, harga);
@@ -191,9 +191,9 @@ public class LaporanTransaksi extends koneksi {
 	          	System.out.println("\n+---------------------------------------------------------------------------------------------------------------+");
 	          	System.out.println("|                                                                                                               |");
 		        System.out.println("|                                                                                                               |");
-		        System.out.println("|Total penjualan barang per hari      : "+hjual_total+"                                                                    |");
-		        System.out.println("|Total modal barang terpakai per hari : "+hbeli_total+"                                                                    |");
-		        System.out.println("|Keuntungan per hari                  : "+untung+"                                                                    |");
+		        System.out.println("|Total penjualan barang per bulan      : "+hjual_total+"                                                                   |");
+		        System.out.println("|Total modal barang terpakai per bulan : "+hbeli_total+"                                                                   |");
+		        System.out.println("|Keuntungan per bulan                  : "+untung+"                                                                   |");
 		        System.out.println("+---------------------------------------------------------------------------------------------------------------+");
 		        ulang();
 	        }    
