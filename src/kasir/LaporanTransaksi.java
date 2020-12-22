@@ -18,7 +18,7 @@ public class LaporanTransaksi extends koneksi {
 	
 	User us = new User();
 	
-	public void menu() {
+	public void menu() throws Exception {
 		System.out.println("\n+--------------------------------+");
 		System.out.println("|          MENU LAPORAN          |");
 		System.out.println("+--------------------------------+");
@@ -44,7 +44,7 @@ public class LaporanTransaksi extends koneksi {
 		}
 	}
 	
-	private void ulang() {
+	private void ulang() throws Exception {
 		System.out.println("\n\nApakah anda ingin melanjutkan program?(Y/T)");
 		String masuk = input1.nextLine();
 		masuk.toUpperCase();
@@ -62,7 +62,7 @@ public class LaporanTransaksi extends koneksi {
 		}
 	}
 	
-	private void kembali() {
+	private void kembali() throws Exception {
 		System.out.println("Apakah anda ingin melanjutkan program?(Y/T)");
 		String masuk = input1.nextLine();
 		masuk.toUpperCase();
