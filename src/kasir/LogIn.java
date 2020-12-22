@@ -11,6 +11,8 @@ public class LogIn {
 	
 	public static int landingPage() throws Exception {
 		
+		User user = new User();
+		
 		Integer pilihan = 0;
 		System.out.println("+============================================+");
   		System.out.println("|             SELAMAT DATANG DI              |");

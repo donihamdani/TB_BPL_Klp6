@@ -16,13 +16,16 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
 	
 	//Menu Data
     public void Menu() {
+    	Integer pilih=0;
+    	do
+    	{
         System.out.println("\n--MENU DATA TRANSAKSI--");
         System.out.println("1. Lakukan Transaksi");
         System.out.println("0. Kembali");
         System.out.print("Masukkan Pilihan : ");
 
         try {
-            Integer pilih = sc.nextInt();
+            pilih = sc.nextInt();
             switch (pilih) {
                 case 0:
                     user.user_pilih();
@@ -38,6 +41,8 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
         catch (Exception e) {
             e.printStackTrace();
         }
+    	}while(pilih<0 || pilih>1);
+        
     }
 	
 	@Override
