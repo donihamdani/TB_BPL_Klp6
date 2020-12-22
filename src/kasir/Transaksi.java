@@ -105,27 +105,6 @@ public class Transaksi extends koneksi implements KelolaTransaksi {
 			
 			trs.DtTransaksi();
 			
-			System.out.println("=====>> Data Master Setelah Transaksi <<====");
-			rs = stmt.executeQuery("SELECT sku, nama, stock, harga_jual harga_jual FROM barang");
-			
-			System.out.println("=======================================================================================");
-			String format2 = "%s\t  %-20s %-20s %-20s %-20s\n";
-			System.out.printf(format2, " NO ", "SKU", "Nama Barang", "Stock", "Harga");
-			System.out.println("=======================================================================================");
-			int tampil2=1;
-			
-			while(rs.next()) {
-				String SKU = rs.getString("sku");
-				String nama = rs.getString("nama");
-				Integer stock = rs.getInt("stock");
-				Integer hargajual = rs.getInt("harga_jual");
-				
-			
-			String format = "[ %s ]\t  %-20s %-20s %-20s %-20s\n";
-			System.out.printf(format, tampil2, SKU, nama, stock, hargajual);
-			tampil2++;
-			}
-			
 			String sqlinsert2 = "INSERT INTO transaksi_detail (sku, noresi, jumlah, harga)" + "VALUES (?, ?, ?, ?)";
 			
 			insert = conn.prepareStatement(sqlinsert2);
