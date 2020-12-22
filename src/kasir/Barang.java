@@ -306,26 +306,39 @@ public class Barang extends koneksi implements KelolaBarang {
 			rs = stmt.executeQuery(cek);
 			
 			if(rs.next()) {
-				System.out.println(" ");
+			System.out.println("+----------------------------------------------------------------------------------------------+");
+			System.out.print("|");
          		System.out.print("SKU");
-         		System.out.print("\t\t");
+         		System.out.print("\t");
+         		System.out.print("|");
          		System.out.print("NAMA");
-         		System.out.print("\t\t");
+         		System.out.print("\t");
+         		System.out.print("|");
          		System.out.print("STOCK");
-         		System.out.print("\t\t");
+         		System.out.print("\t");
+         		System.out.print("|");
          		System.out.print("HARGA BELI");
-         		System.out.print("\t\t");
+         		System.out.print("\t");
+         		System.out.print("|");
          		System.out.println("HARGA JUAL ");
+         		System.out.println("+----------------------------------------------------------------------------------------------+");
          		
+         		System.out.println("+----------------------------------------------------------------------------------------------+");
+			System.out.print("|");
         		System.out.print(rs.getString("sku"));
-        		System.out.print("\t\t");
+        		System.out.print("\t");
+        		System.out.print("|");
         		System.out.print(rs.getString("nama"));
-        		System.out.print("\t\t");
+        		System.out.print("\t");
+        		System.out.print("|");
         		System.out.print(rs.getInt("stock"));
-        		System.out.print("\t\t");
+        		System.out.print("\t");
+        		System.out.print("|");
         		System.out.print(rs.getInt("harga_beli"));
-        		System.out.print("\t\t\t");
-        		System.out.println(rs.getInt("harga_jual"));			
+        		System.out.print("\t");
+        		System.out.print("|");
+        		System.out.println(rs.getInt("harga_jual"));
+        		System.out.println("+----------------------------------------------------------------------------------------------+");
     			
         		System.out.println("\nApakah anda yakin untuk menghapus data tersebut? (Y/T)");
         		System.out.print("Jawaban = ");
@@ -380,15 +393,22 @@ public class Barang extends koneksi implements KelolaBarang {
         	System.out.println("|                                 DATA BARANG KELOMPOK 6                             |");
         	System.out.println("+====================================================================================+");
             
-         		System.out.print("  SKU");
-         		System.out.print("\t\t");
-         		System.out.print("  NAMA");
-         		System.out.print("\t\t");
-         		System.out.print("  STOCK");
-         		System.out.print("\t\t");
-         		System.out.print("  HARGA BELI");
-         		System.out.print("\t\t");
-         		System.out.println("  HARGA JUAL");
+         		System.out.println("+----------------------------------------------------------------------------------------------+");
+			System.out.print("|");
+         		System.out.print("	SKU ");
+         		System.out.print("\t");
+         		System.out.print("|");
+         		System.out.print("	NAMA ");
+         		System.out.print("\t");
+         		System.out.print("|");
+         		System.out.print("	STOCK ");
+         		System.out.print("\t");
+         		System.out.print("|");
+         		System.out.print("	HARGA BELI ");
+         		System.out.print("\t");
+         		System.out.print("|");
+         		System.out.println("	HARGA JUAL ");
+         		System.out.println("+----------------------------------------------------------------------------------------------+");
         	
         	while(rs.next()) { 
         		DataBarang n = new DataBarang();
@@ -403,15 +423,22 @@ public class Barang extends koneksi implements KelolaBarang {
         	}
 
         	for(DataBarang barang : data) {
-	        	System.out.print("  " +barang.sku);
-	        	System.out.print("\t\t");
-	        	System.out.print("  " +barang.nama);
-	        	System.out.print("\t\t");
-	        	System.out.print("  " +barang.stock);
-	        	System.out.print("\t\t");
-	        	System.out.print("  " +barang.harga_beli);
-	        	System.out.print("\t\t\t");
-	        	System.out.println("  " +barang.harga_jual);
+	        	System.out.println("+----------------------------------------------------------------------------------------------+");
+			System.out.print("|");
+	        	System.out.print("	" +barang.sku+ " ");
+	        	System.out.print("\t");
+	        	System.out.print("|");
+	        	System.out.print("	" +barang.nama+ " ");
+	        	System.out.print("\t");
+	        	System.out.print("|");
+	        	System.out.print("	" +barang.stock+ " ");
+	        	System.out.print("\t");
+	        	System.out.print("|");
+	        	System.out.print("	" +barang.harga_beli+ " ");
+	        	System.out.print("\t");
+	        	System.out.print("|");
+	        	System.out.println("	" +barang.harga_jual+ " ");
+	        	System.out.println("+----------------------------------------------------------------------------------------------+");
         	}
         	
             System.out.println("\nKembali ke Menu? Y/T");
@@ -421,6 +448,10 @@ public class Barang extends koneksi implements KelolaBarang {
             if(jwb.equalsIgnoreCase("y")) {
             	Menu();
             }
+            else if (jwb.equalsIgnoreCase("t")){
+            	System.out.println("--Kembali Ke Menu Utama--");
+            	user.user_pilih();
+            } 
             else {
             	user.logout();
             }
