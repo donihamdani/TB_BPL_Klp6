@@ -366,8 +366,14 @@ public class Barang extends koneksi implements KelolaBarang {
         			System.out.println("+------------------------+");
         			LihatData();
         		}
-        		else {
+        		else if(jawab.equalsIgnoreCase("t")){
         			Menu();
+        		}
+        		else {
+        			System.out.println("\n+-------------------------------------+");
+        			System.out.println("  Jawaban yang dimasukkan tidak valid  ");
+        			System.out.println("+-------------------------------------+");
+        			HapusBarang();
         		}
 			}
 			else {
@@ -461,12 +467,14 @@ public class Barang extends koneksi implements KelolaBarang {
             if(jwb.equalsIgnoreCase("y")) {
             	Menu();
             }
-            else if (jwb.equalsIgnoreCase("t")){
-            	System.out.println("--Kembali Ke Menu Utama--");
-            	user.user_pilih();
-            } 
-            else {
+            else if(jwb.equalsIgnoreCase("t")) {
             	user.logout();
+            }
+            else {
+    			System.out.println("\n+-------------------------------------+");
+    			System.out.println("  Jawaban yang dimasukkan tidak valid  ");
+    			System.out.println("+-------------------------------------+");
+    			user.user_pilih();
             }
 
         } 
