@@ -69,7 +69,9 @@ public class Barang extends koneksi implements KelolaBarang {
             }
         } 
         catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("+-------------------+");
+			System.out.println("| Terjadi Kesalahan |");
+			System.out.println("+-------------------+");
         }
     }
     
@@ -103,7 +105,9 @@ public class Barang extends koneksi implements KelolaBarang {
     
         } 
         catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("+-------------------+");
+			System.out.println("| Terjadi Kesalahan |");
+			System.out.println("+-------------------+");
         }            
 		LihatData();
         
@@ -191,7 +195,9 @@ public class Barang extends koneksi implements KelolaBarang {
 		}
 		
 		catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("+-------------------+");
+			System.out.println("| Terjadi Kesalahan |");
+			System.out.println("+-------------------+");
 		}
 
 	}
@@ -272,7 +278,9 @@ public class Barang extends koneksi implements KelolaBarang {
 		}
         
         catch (Exception e) {
-        	e.printStackTrace();
+        	System.out.println("+-------------------+");
+			System.out.println("| Terjadi Kesalahan |");
+			System.out.println("+-------------------+");
         }			
 		LihatData();
 		
@@ -346,7 +354,9 @@ public class Barang extends koneksi implements KelolaBarang {
 		}
 		
 		catch(Exception e) {
-			e.printStackTrace();
+			System.out.println("+-------------------+");
+			System.out.println("| Terjadi Kesalahan |");
+			System.out.println("+-------------------+");
 		}			
 
 	}
@@ -418,7 +428,9 @@ public class Barang extends koneksi implements KelolaBarang {
         } 
         
         catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("+-------------------+");
+			System.out.println("| Terjadi Kesalahan |");
+			System.out.println("+-------------------+");
         }
 		
 	}
@@ -479,7 +491,9 @@ public class Barang extends koneksi implements KelolaBarang {
 		}
 		
 		catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("+-------------------+");
+			System.out.println("| Terjadi Kesalahan |");
+			System.out.println("+-------------------+");
 		}
 
 	}
