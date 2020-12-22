@@ -214,6 +214,11 @@ public class User extends koneksi implements Kelola{
   				case 4:
   					lt.menu();
   					break;
+  				
+  				case 5:
+  					System.out.println("Program ditutup");
+  					System.out.println("Terima Kasih");
+  					System.exit(0);
   					
   				default:
   					System.out.println("+------------------------+");
