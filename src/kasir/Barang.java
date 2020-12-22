@@ -512,11 +512,15 @@ public class Barang extends koneksi implements KelolaBarang {
                 jwb = input.nextLine();
                 
                 if(jwb.equalsIgnoreCase("y")) {
-                	Menu();
-                }
-                else {
-                	user.logout();
-                }
+            	Menu();
+            }
+            else if (jwb.equalsIgnoreCase("t")){
+            	System.out.println("--Kembali Ke Menu Utama--");
+            	user.user_pilih();
+            } 
+            else {
+            	user.logout();
+            }
             }
         		
 		}
